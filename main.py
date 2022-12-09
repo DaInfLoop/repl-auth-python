@@ -10,7 +10,7 @@ class UserInfo:
     headers = dict(filter(lambda val: val[0].startswith('X-Replit-User-'), headers.items()))
     for name in headers:
       setattr(self, cleanHeaderName(name.split('X-Replit-User-')[1].lower()), headers.get(name))
-      if name == "X-Replit-User-Teams" or name == "X-Replit-User-Roles":
+      if name in ["X-Replit-User-Teams", "X-Replit-User-Roles"]:
         setattr(self, cleanHeaderName(name.split('X-Replit-User-')[1].lower()), headers.get(name).split(','))
 
     self.loggedIn = headers.get('X-Replit-User-Id')!=None
