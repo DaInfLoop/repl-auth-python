@@ -1,0 +1,3 @@
+# Does anyone else hate it when you forget to .gitignore venv and __pycache__? Me too.
+venv
+__pycache_
